@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "profesia-scraper"
+version = "0.1.0"
+description = "Scrapes profesia jobs and lets you filter them"
+authors = ["Tomas Toth <tomas.toth004@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "profesia_scraper"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+playwright = "^1.28.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
