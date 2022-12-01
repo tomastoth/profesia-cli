@@ -101,8 +101,8 @@ def _filter_jobs(
     for job in jobs:
         if (
                 _contains_all_filter_words(job.title, all_words)
-                and _contains_any_word(job.title, any_words)
-                and not _contains_any_word(job.title, bad_words)
+                and _contains_any_good_word(job.title, any_words)
+                and not _contains_any_bad_word(job.title, bad_words)
                 and _filter_by_salary(
             job.min_salary, job.max_salary, expected_min_salary, expected_max_salary
         )
@@ -159,8 +159,18 @@ def _get_text_from_inner_selector(element: ElementHandle, selector: str) -> str:
 
 def _contains_any_word(title: str, any_words: list[str]) -> bool:
     title_lowercase = title.lower()
+    if not any_words:
+        return True
     return any(single_word.lower() in title_lowercase for single_word in any_words)
 
+def _contains_any_bad_word(title: str, any_words: list[str]) -> bool:
+    if not any_words:
+        return False
+    return _contains_any_word(title, any_words)
+def _contains_any_good_word(title: str, any_words: list[str]) -> bool:
+    if not any_words:
+        return True
+    return _contains_any_word(title, any_words)
 
 def _contains_all_filter_words(title: str, filters: list[str]) -> bool:
     title_lowercase = title.lower()
