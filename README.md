@@ -17,7 +17,8 @@
 1. ```git clone git@github.com:tomastoth/profesia-cli.git```
 2. ``` cd profesia-cli```
 3. ``` poetry install```
-4. ``` python3 app.py -k python -min 2000 -any medior junior -none senior```
+4. ``` playwright install```
+5. ``` python3 app.py -k python -min 2000 -any medior junior -none senior```
 
 
 #### CLI arguments
